@@ -1,0 +1,35 @@
+{
+  "name": "memory",
+  "version": "1.0.0",
+  "description": "A mini project to study next.js",
+  "main": "main.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "yarn build && next export"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-thanatos/memory.git"
+  },
+  "keywords": [
+    "react",
+    "next.js"
+  ],
+  "author": "xluobin@163.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/x-thanatos/memory/issues"
+  },
+  "homepage": "https://github.com/x-thanatos/memory#readme",
+  "dependencies": {
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1"
+  },
+  "devDependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "next": "^7.0.2",
+    "node-sass": "^4.10.0"
+  }
+}
