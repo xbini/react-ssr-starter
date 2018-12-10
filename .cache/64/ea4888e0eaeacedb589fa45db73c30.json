@@ -1,0 +1,1 @@
+{"id":"XKlW","dependencies":[],"generated":{"js":"var toString = {}.toString;\n\nmodule.exports = function (it) {\n  return toString.call(it).slice(8, -1);\n};","map":null},"hash":"991992e89c6d0ab326dba7a932602222","cacheData":{"env":{}}}

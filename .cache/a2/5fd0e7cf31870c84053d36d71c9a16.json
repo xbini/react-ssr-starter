@@ -1,0 +1,1 @@
+{"id":"SRgI","dependencies":[],"generated":{"js":"function _classCallCheck(instance, Constructor) {\n  if (!(instance instanceof Constructor)) {\n    throw new TypeError(\"Cannot call a class as a function\");\n  }\n}\n\nmodule.exports = _classCallCheck;","map":null},"hash":"2406a084f91b440b3775709d92c98505","cacheData":{"env":{}}}
