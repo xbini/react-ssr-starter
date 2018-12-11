@@ -1,25 +1,14 @@
 // next.config.js
-const transpileModules = require('next-plugin-transpile-modules')
 const css = require('@zeit/next-css')
 const sass = require('@zeit/next-sass')
 const images = require('next-images')
 const withPlugins = require('next-compose-plugins')
 const config = [
-    [transpileModules, {
-        transpileModules: ['antd']
-    }],
     [images, {}],
-    [css, {
-        cssLoaderOptions: {
-            includePaths: ['node_modules/antd']
-        }
-    }],
+    [css, {}],
     [sass, {}]
 ]
 const nextConfig = {
-    exportPathMap: {
-
-    },
     pageExtensions: ['jsx', 'js'],
     webpack(config, options) {
         // config.module.rules.push({

@@ -4,14 +4,14 @@
   "description": "A mini project to study next.js",
   "main": "main.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "export": "yarn build && next export"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/x-thanatos/memory.git"
+    "url": "git+https://github.com/xbini/memory.git"
   },
   "keywords": [
     "react",
@@ -20,11 +20,11 @@
   "author": "xluobin@163.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/x-thanatos/memory/issues"
+    "url": "https://github.com/xbini/memory/issues"
   },
-  "homepage": "https://github.com/x-thanatos/memory#readme",
+  "homepage": "https://github.com/xbini/memory#readme",
   "dependencies": {
-    "antd": "^3.11.0",
+    "antd-mobile": "^2.2.6",
     "moment": "^2.22.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1"
@@ -37,7 +37,6 @@
     "next": "^7.0.2",
     "next-compose-plugins": "^2.1.1",
     "next-images": "^1.0.3",
-    "next-plugin-transpile-modules": "^1.0.0",
     "node-sass": "^4.10.0",
     "url-loader": "^1.1.2",
     "webpack": "^4.27.1"

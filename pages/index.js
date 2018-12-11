@@ -1,22 +1,38 @@
-import 'moment'
-import 'moment/locale/zh-cn'
 import Head from 'next/head'
-// import { DatePicker } from 'antd'
-import DatePicker from 'antd/lib/date-picker';  // 加载 JS
-import Button from 'antd/lib/button'
-import 'antd/lib/button/style/css'
-import 'antd/lib/date-picker/style/css';
+import { Component } from 'react'
 import '../style/common.scss'
-import '../style/s.css'
+import List from 'antd-mobile/lib/list'
+import 'antd-mobile/lib/list/style/index.css'
 
-export default () => (
-    <div>
-        <Head>
-            <title>Nice react app with SSR</title>
-            <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-        </Head>
-        <p>Hello world!</p>
-        <DatePicker></DatePicker>
-        <Button type='primary'>按钮</Button>
-    </div>
-)
+const Item = List.Item
+const Brief = Item.Brief
+
+export default class ListPageComponent extends Component {
+    state = {
+        list: []
+    }
+
+    constructor() {
+        super()
+        let number = 1
+        setInterval(() => {
+            const { list } = this.state
+            this.setState({ list: list.concat(number++) })
+        }, 1000)
+    }
+
+    render() {
+        return (
+            <div>
+                <Head>
+                    <title>Nice react app with SSR</title>
+                    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+                </Head>
+                <p>Hello world!</p>
+                <List renderHeader={() => 'Basic Style'} className="my-list">
+                    {this.state.list.map(v => <Item key={v} extra={'extra content'}>{v}</Item>)}
+                </List>
+            </div>
+        )
+    }
+}
