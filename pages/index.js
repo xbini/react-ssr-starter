@@ -3,18 +3,19 @@ import { Component } from 'react'
 import '../style/common.scss'
 import List from 'antd-mobile/lib/list'
 import 'antd-mobile/lib/list/style/index.css'
+import Framework from '../src/components/framework/framework'
 
 const Item = List.Item
 const Brief = Item.Brief
 
 export default class ListPageComponent extends Component {
     state = {
-        list: []
+        list: [1, 2, 3, 4, 5, 6]
     }
 
     constructor() {
         super()
-        let number = 1
+        let number = 7
         setInterval(() => {
             const { list } = this.state
             this.setState({ list: list.concat(number++) })
@@ -23,16 +24,11 @@ export default class ListPageComponent extends Component {
 
     render() {
         return (
-            <div>
-                <Head>
-                    <title>Nice react app with SSR</title>
-                    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-                </Head>
-                <p>Hello world!</p>
+            <Framework>
                 <List renderHeader={() => 'Basic Style'} className="my-list">
                     {this.state.list.map(v => <Item key={v} extra={'extra content'}>{v}</Item>)}
                 </List>
-            </div>
+            </Framework>
         )
     }
 }

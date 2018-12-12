@@ -9,6 +9,12 @@ const config = [
     [sass, {}]
 ]
 const nextConfig = {
+    // exportPathMap(defaultPathMap, options) {
+    //     return {
+    //         '/': { page: '/src/pages/index.js' }
+    //     }
+    // },
+    // useFileSystemPublicRoutes: false,
     pageExtensions: ['jsx', 'js'],
     webpack(config, options) {
         // config.module.rules.push({
