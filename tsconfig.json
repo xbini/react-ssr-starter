@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "typeRoots" : ["./types", "node_modules"],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -8,7 +9,7 @@
     "jsx": "preserve",
     "lib": [
       "dom",
-      "es2018"
+      "esnext"
     ],
     "exclude": [
       "node_modules",
