@@ -20,6 +20,16 @@ const genList = (length: number = 1000) => {
     return array
 }
 
+function BindContext(context: any, options?: any) {
+    return function (target, name, descriptor) {
+        console.log(context)
+        // descriptor.valueOf = function (...args) {
+        //     console.log(this)
+        // }
+        return descriptor
+    }
+}
+
 export default class ListPageComponent extends Component {
     public state: InterfaceState = {
         list: genList()
@@ -29,10 +39,11 @@ export default class ListPageComponent extends Component {
         super(props)
     }
 
-    public handleClick = (name?: string, e?: SyntheticEvent) => {
-        // console.log(this)
-        // console.log(name)
-        // console.log(e)
+    @BindContext(this)
+    public handleClick(name?: string, e?: SyntheticEvent): void {
+        console.log(this)
+        console.log(name)
+        console.log(e)
     }
 
     public componentDidMount(): void {
@@ -45,23 +56,11 @@ export default class ListPageComponent extends Component {
         const header = ('Basic Style')
         return (
             <Framework>
-                <button onClick={this.handleClick.bind(this, 'bini')}>点击</button>
-                <List renderHeader={header} className="my-list">
-                    {this.state.list.map((v) => <Item key={v} extra={'extra content'}>{v} </Item>)}
+                <button onClick={ this.handleClick.bind(this, 'bini') }>点击</button>
+                <List renderHeader={ header } className="my-list">
+                    { this.state.list.map((v) => <Item key={ v } extra={ 'extra content' }>{ v } </Item>) }
                 </List>
             </Framework>
         )
     }
 }
-
-class A {
-    a = 2
-
-    foo() {
-        console.log(this)
-    }
-}
-
-const a = new A()
-
-a.foo()

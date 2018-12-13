@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "typeRoots" : ["./types", "node_modules"],
+    "typeRoots": [
+      "./types",
+      "node_modules"
+    ],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -10,12 +13,6 @@
     "lib": [
       "dom",
       "esnext"
-    ],
-    "exclude": [
-      "node_modules",
-      ".cache",
-      ".next",
-      "out"
     ],
     "module": "esnext",
     "moduleResolution": "node",
@@ -28,5 +25,11 @@
     "sourceMap": true,
     "strict": true,
     "target": "esnext"
-  }
+  },
+  "exclude": [
+    "node_modules",
+    ".cache",
+    ".next",
+    "out"
+  ]
 }
