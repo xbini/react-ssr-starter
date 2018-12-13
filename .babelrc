@@ -1,16 +1,13 @@
 {
   "presets": [
-    "next/babel"
-  ],
-  "plugins": [
     [
-      "import",
+      "next/babel",
       {
-        "libraryName": "antd-mobile",
-        "libraryDirectory": "es",
-        "style": "css"
-        // `style: true` 会加载 less 文件
+        "preset-env": {
+          "modules": false
+        }
       }
-    ]
+    ],
+    "@zeit/next-typescript/babel"
   ]
 }

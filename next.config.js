@@ -1,12 +1,16 @@
 // next.config.js
 const css = require('@zeit/next-css')
 const sass = require('@zeit/next-sass')
+const typescript = require('@zeit/next-typescript')
 const images = require('next-images')
+const fonts = require('next-fonts')
 const withPlugins = require('next-compose-plugins')
 const config = [
-    [images, {}],
+    [typescript, {}],
     [css, {}],
-    [sass, {}]
+    [sass, {}],
+    [images, {}],
+    [fonts, { enableSvg: true }]
 ]
 const nextConfig = {
     // exportPathMap(defaultPathMap, options) {
@@ -15,18 +19,12 @@ const nextConfig = {
     //     }
     // },
     // useFileSystemPublicRoutes: false,
-    pageExtensions: ['jsx', 'js'],
+    pageExtensions: ['jsx', 'js', 'ts', 'tsx'],
     webpack(config, options) {
-        // config.module.rules.push({
-        //     test: /\.(eot|woff|woff2|ttf|svg|png|jpg|gif)$/,
-        //     use: {
-        //         loader: 'url-loader',
-        //         options: {
-        //             limit: 100000,
-        //             name: '[name].[ext]'
-        //         }
-        //     }
-        // })
+        const { isServer } = options
+        if (!isServer) {
+            //    do something
+        }
         return config
     }
 

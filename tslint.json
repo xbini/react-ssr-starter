@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react"
+  ],
+  "rules": {
+    "semicolon": false,
+    "trailing-comma": false,
+    "prefer-object-spread": true,
+    "ordered-imports": false,
+    "prefer-template": true,
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double",
+      "avoid-template"
+    ]
+  }
+}
