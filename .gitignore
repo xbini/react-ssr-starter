@@ -18,6 +18,7 @@ npm-debug.log*
 .tmp/
 .versions/
 .next/
+.cache/
 out/
 coverage/
 dist/
