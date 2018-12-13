@@ -1,0 +1,1 @@
+{"id":"0fsv","dependencies":[],"generated":{"js":"function _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? obj : {\n    default: obj\n  };\n}\n\nmodule.exports = _interopRequireDefault;","map":null},"hash":"8bec697f4fed1446f80c5ed02c27f0cc","cacheData":{"env":{}}}

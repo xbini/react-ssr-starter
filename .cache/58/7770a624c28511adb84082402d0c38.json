@@ -1,0 +1,1 @@
+{"id":"DxLa","dependencies":[],"generated":{"js":"module.exports = function (it, Constructor, name, forbiddenField) {\n  if (!(it instanceof Constructor) || forbiddenField !== undefined && forbiddenField in it) {\n    throw TypeError(name + ': incorrect invocation!');\n  }\n\n  return it;\n};","map":null},"hash":"ed7e866aa83e3115869de6e3010e8eec","cacheData":{"env":{}}}

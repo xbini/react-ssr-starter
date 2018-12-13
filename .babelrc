@@ -1,5 +1,13 @@
 {
   "presets": [
-    "next/babel"
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "modules": false
+        }
+      }
+    ],
+    "@zeit/next-typescript/babel"
   ]
 }
