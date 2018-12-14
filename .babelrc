@@ -1,13 +1,15 @@
 {
   "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-syntax-class-properties",
     [
-      "next/babel",
+      "@babel/plugin-proposal-class-properties",
       {
-        "preset-env": {
-          "modules": false
-        }
+        "loose": true
       }
-    ],
-    "@zeit/next-typescript/babel"
+    ]
   ]
 }

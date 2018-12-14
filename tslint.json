@@ -9,6 +9,8 @@
     "prefer-object-spread": true,
     "ordered-imports": false,
     "prefer-template": true,
+    "jsx-curly-spacing": true,
+    "object-literal-sort-keys": false,
     "quotemark": [
       true,
       "single",

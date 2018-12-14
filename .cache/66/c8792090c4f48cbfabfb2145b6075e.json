@@ -1,1 +1,0 @@
-{"id":"uc15","dependencies":[],"generated":{"js":"// 7.1.4 ToInteger\nvar ceil = Math.ceil;\nvar floor = Math.floor;\n\nmodule.exports = function (it) {\n  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);\n};","map":null},"hash":"3584fcb8c7b890a7170784feaf8009f5","cacheData":{"env":{}}}

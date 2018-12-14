@@ -8,28 +8,29 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "baseUrl": ".",
-    "jsx": "preserve",
+    "jsx": "react",
+    "listFiles": true,
     "lib": [
       "dom",
       "esnext"
     ],
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "preserveConstEnums": true,
     "removeComments": false,
+    "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "esnext"
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
-    "node_modules",
-    ".cache",
-    ".next",
-    "out"
+    "node_modules"
   ]
 }

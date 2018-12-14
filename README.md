@@ -1,5 +1,5 @@
 # memory
-A mini project to study next.js
+A mini project to study react SSR.
 
 ## !Important
 
