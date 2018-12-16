@@ -17,15 +17,13 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "preserveConstEnums": true,
     "removeComments": false,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es5"
   },
   "include": [
     "src"

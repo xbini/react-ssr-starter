@@ -9,7 +9,7 @@ const clientConfig = merge(baseConfig, {
     target: 'web',
     devtool: 'cheap-module-eval-source-map',
     entry: {
-        list: path.resolve(__dirname, '../src/pages/app.jsx')
+        list: path.resolve(__dirname, '../src/pages/list.tsx')
     },
     output: {
         pathinfo: false,
@@ -25,16 +25,8 @@ const clientConfig = merge(baseConfig, {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                // include: path.resolve(__dirname, '../src'),
-                use: {
-                    loader: 'babel-loader'
-                }
-            },
-            {
                 test: /\.tsx?$/,
-                exclude: /node_modules/,
+                include: path.resolve(__dirname, '../src'),
                 use: {
                     loader: 'ts-loader',
                     options: {
