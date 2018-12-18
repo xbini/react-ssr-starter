@@ -1,5 +1,4 @@
 const path = require('path')
-
 const root = path.resolve(__dirname, '../')
 const baseConfig = {
     bail: true,
@@ -7,11 +6,6 @@ const baseConfig = {
     context: root,
     module: {
         rules: []
-    },
-    node: {
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty'
     },
     resolve: {
         alias: {

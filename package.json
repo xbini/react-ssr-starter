@@ -4,7 +4,11 @@
   "description": "A mini project to study react SSR.",
   "main": "main.js",
   "scripts": {
-    "build": "webpack --progress --color --watch --config ./build/webpack-client.config"
+    "build": "webpack --config ./build/webpack-client.config --progress --colors",
+    "build:server": "webpack --config ./build/webpack-server.config --progress --colors",
+    "build:watch": "yarn run build --watch",
+    "build:stats": "webpack --config ./build/webpack-client.config --progress --colors --profile --json > ./dist/client/stats.json",
+    "bundle-analyzer:client": "webpack-bundle-analyzer ./dist/client/stats.json"
   },
   "repository": {
     "type": "git",
@@ -34,6 +38,7 @@
     "autoprefixer": "^9.4.2",
     "css-loader": "^2.0.0",
     "file-loader": "^2.0.0",
+    "ignore-loader": "^0.1.2",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "postcss": "^7.0.6",
@@ -46,6 +51,7 @@
     "typescript": "^3.2.2",
     "url-loader": "^1.1.2",
     "webpack": "^4.27.1",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-merge": "^4.1.5"
   }

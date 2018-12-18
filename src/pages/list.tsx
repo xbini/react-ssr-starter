@@ -1,11 +1,11 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import React from 'react'
+import { render } from 'react-dom'
 import { Component, SyntheticEvent } from 'react'
-import { List } from 'antd-mobile'
-import 'antd-mobile/lib/list/style/index.css'
+import { renderToString } from 'react-dom/server'
+import { Button, List } from 'antd-mobile'
 import '../style/common.scss'
 
-const Item = List.Item
+const { Item } = List
 
 // const Brief = Item.Brief
 
@@ -13,7 +13,7 @@ interface InterfaceState {
     list: number[]
 }
 
-const genList = (length: number = 1000) => {
+const genList = (length: number = 5) => {
     const array: number[] = []
     for (let i = 0; i < length; i++) {
         array.push(i)
@@ -46,14 +46,16 @@ export default class ListPage extends Component {
         const header = ('Basic Style')
         return (
             <div>
-                <button onClick={ this.handleClick.bind(this,'bini') }>点击</button>
+                <Button onClick={ this.handleClick.bind(this, 'bini') }>点我啊</Button>
                 <List renderHeader={ header } className="my-list">
                     { this.state.list.map((v) => <Item key={ v } extra={ 'extra content' }>{ v } </Item>) }
                 </List>
-                2222
             </div>
         )
     }
 }
 
-ReactDOM.render(<ListPage/>, document.querySelector('#app'))
+render(<ListPage/>, document.querySelector('#app'))
+
+const staticStr = renderToString(<ListPage/>)
+console.log(staticStr)

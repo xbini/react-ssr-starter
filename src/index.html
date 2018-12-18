@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no"/>
+    <link rel="stylesheet" href="../dist/client/vendors~list.css">
     <link rel="stylesheet" href="../dist/client/list.css">
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
+    {{ ssr }}
+</div>
 </body>
+<script src="../dist/client/runtime.js"></script>
+<script src="../dist/client/vendors~list.js"></script>
 <script src="../dist/client/list.js"></script>
 </html>

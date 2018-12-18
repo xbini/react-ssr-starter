@@ -11,6 +11,11 @@ const clientConfig = merge(baseConfig, {
     entry: {
         list: path.resolve(__dirname, '../src/pages/list.tsx')
     },
+    node: {
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty'
+    },
     output: {
         pathinfo: false,
         path: path.resolve(__dirname, '../dist/client'),
@@ -30,13 +35,12 @@ const clientConfig = merge(baseConfig, {
                 use: {
                     loader: 'ts-loader',
                     options: {
-                        // getCustomTransformers: () => ({
-                        //     before: [TsImportPluginFactory({
-                        //         libraryName: 'antd-mobile',
-                        //         module: 'es',
-                        //         style: 'css'
-                        //     })]
-                        // }),
+                        getCustomTransformers: () => ({
+                            before: [TsImportPluginFactory({
+                                libraryName: 'antd-mobile',
+                                style: 'css'
+                            })]
+                        }),
                         transpileOnly: true
                     }
                 }
