@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "typeRoots": [
-      "./types",
+      "types",
       "node_modules"
     ],
     "allowSyntheticDefaultImports": true,

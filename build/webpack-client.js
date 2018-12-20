@@ -1,20 +1,42 @@
 const path = require('path')
 const merge = require('webpack-merge')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TsImportPluginFactory = require('ts-import-plugin')
-const baseConfig = require('./webpack-base.config')
+const baseConfig = require('./webpack-base')
 
-const serverConfig = merge(baseConfig, {
+const clientConfig = merge(baseConfig, {
     mode: 'development',
-    target: 'node',
+    target: 'web',
     devtool: 'cheap-module-eval-source-map',
     entry: {
-        list: path.resolve(__dirname, '../src/pages/list.tsx')
+        list: path.resolve(__dirname, '../src/client/pages/list.tsx')
+    },
+    node: {
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty'
     },
     output: {
         pathinfo: false,
-        path: path.resolve(__dirname, '../dist/server'),
+        path: path.resolve(__dirname, '../dist/server/static'),
         filename: '[name].js',
         chunkFilename: '[name].js'
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
+        })
+    ],
+    optimization: {
+        runtimeChunk: {
+            name: 'runtime'
+        },
+        splitChunks: {
+            chunks(chunk) {
+                // exclude `polyfill`
+                return chunk.name && chunk.name.includes('polyfill') === false
+            }
+        }
     },
     module: {
         rules: [
@@ -27,7 +49,7 @@ const serverConfig = merge(baseConfig, {
                         getCustomTransformers: () => ({
                             before: [TsImportPluginFactory({
                                 libraryName: 'antd-mobile',
-                                style: false
+                                style: 'css'
                             })]
                         }),
                         transpileOnly: true
@@ -35,8 +57,21 @@ const serverConfig = merge(baseConfig, {
                 }
             },
             {
-                test: /\.s?css$/,
-                use: 'ignore-loader'
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    { loader: 'css-loader', options: {} },
+                    { loader: 'postcss-loader', options: {} }
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    { loader: 'css-loader', options: {} },
+                    { loader: 'postcss-loader', options: {} },
+                    { loader: 'sass-loader', options: {} }
+                ]
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -62,4 +97,4 @@ const serverConfig = merge(baseConfig, {
     }
 })
 
-module.exports = serverConfig
+module.exports = clientConfig

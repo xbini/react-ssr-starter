@@ -9,7 +9,7 @@ const { Item } = List
 
 // const Brief = Item.Brief
 
-interface InterfaceState {
+interface IState {
     list: number[]
 }
 
@@ -22,7 +22,7 @@ const genList = (length: number = 5) => {
 }
 
 export default class ListPage extends Component {
-    public state: InterfaceState = {
+    public state: IState = {
         list: genList()
     }
 
@@ -54,8 +54,3 @@ export default class ListPage extends Component {
         )
     }
 }
-
-render(<ListPage/>, document.querySelector('#app'))
-
-const staticStr = renderToString(<ListPage/>)
-console.log(staticStr)

@@ -1,32 +1,21 @@
 const path = require('path')
 const merge = require('webpack-merge')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TsImportPluginFactory = require('ts-import-plugin')
-const baseConfig = require('./webpack-base.config')
+const baseConfig = require('./webpack-base')
 
-const clientConfig = merge(baseConfig, {
+const serverConfig = merge(baseConfig, {
     mode: 'development',
-    target: 'web',
+    target: 'node',
     devtool: 'cheap-module-eval-source-map',
     entry: {
-        list: path.resolve(__dirname, '../src/pages/list.tsx')
-    },
-    node: {
-        fs: 'empty',
-        net: 'empty',
-        tls: 'empty'
+        index: path.resolve(__dirname, '../src/server/index.tsx')
     },
     output: {
         pathinfo: false,
-        path: path.resolve(__dirname, '../dist/client'),
+        path: path.resolve(__dirname, '../dist/server'),
         filename: '[name].js',
         chunkFilename: '[name].js'
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css'
-        })
-    ],
     module: {
         rules: [
             {
@@ -38,7 +27,7 @@ const clientConfig = merge(baseConfig, {
                         getCustomTransformers: () => ({
                             before: [TsImportPluginFactory({
                                 libraryName: 'antd-mobile',
-                                style: 'css'
+                                style: false
                             })]
                         }),
                         transpileOnly: true
@@ -46,21 +35,8 @@ const clientConfig = merge(baseConfig, {
                 }
             },
             {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader', options: {} },
-                    { loader: 'postcss-loader', options: {} }
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader', options: {} },
-                    { loader: 'postcss-loader', options: {} },
-                    { loader: 'sass-loader', options: {} }
-                ]
+                test: /\.s?css$/,
+                use: 'ignore-loader'
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -73,7 +49,7 @@ const clientConfig = merge(baseConfig, {
                 }
             },
             {
-                test: /\.woff|\.woff2|\.svg|\.eot|\.ttf/,
+                test: /\.(woff|woff2|svg|eot|ttf)$/,
                 use: {
                     loader: 'url-loader',
                     options: {
@@ -86,4 +62,4 @@ const clientConfig = merge(baseConfig, {
     }
 })
 
-module.exports = clientConfig
+module.exports = serverConfig

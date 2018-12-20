@@ -5,24 +5,18 @@ const baseConfig = {
     cache: true,
     context: root,
     module: {
-        rules: []
+        rules: [
+            {
+                test: /.html$/,
+                use: 'html-loader'
+            }
+        ]
     },
     resolve: {
         alias: {
             src: path.resolve(__dirname, '../src/')
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', '.css', '.json', '.html']
-    },
-    optimization: {
-        runtimeChunk: {
-            name: 'runtime'
-        },
-        splitChunks: {
-            chunks(chunk) {
-                // exclude `polyfill`
-                return chunk.name && chunk.name.includes('polyfill') === false
-            }
-        }
     },
     stats: {
         children: false
