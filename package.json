@@ -12,7 +12,7 @@
     "build:ssr:stats": "webpack --config ./build/webpack-server --progress --colors --profile --json > ./dist/server/stats.json",
     "bundle-analyzer:client": "webpack-bundle-analyzer ./dist/client/stats.json",
     "bundle-analyzer:ssr": "webpack-bundle-analyzer ./dist/server/stats.json",
-    "serve": "node ./dist/server/index"
+    "serve": "cd dist/server && node index.js"
   },
   "repository": {
     "type": "git",

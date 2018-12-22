@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Component, SyntheticEvent } from 'react'
-import { renderToString } from 'react-dom/server'
 import { Button, List } from 'antd-mobile'
 import '../style/common.scss'
 
