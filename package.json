@@ -5,14 +5,14 @@
   "main": "main.js",
   "scripts": {
     "build:client": "webpack --config ./build/webpack-client --progress --colors",
-    "build:ssr": "webpack --config ./build/webpack-server --progress --colors",
+    "build:server": "webpack --config ./build/webpack-server --progress --colors",
     "build:client:watch": "yarn run build:client --watch",
-    "build:ssr:watch": "yarn run build:ssr --watch",
+    "build:server:watch": "yarn run build:server --watch",
     "build:client:stats": "webpack --config ./build/webpack-client --progress --colors --profile --json > ./dist/client/stats.json",
-    "build:ssr:stats": "webpack --config ./build/webpack-server --progress --colors --profile --json > ./dist/server/stats.json",
+    "build:server:stats": "webpack --config ./build/webpack-server --progress --colors --profile --json > ./dist/server/stats.json",
     "bundle-analyzer:client": "webpack-bundle-analyzer ./dist/client/stats.json",
-    "bundle-analyzer:ssr": "webpack-bundle-analyzer ./dist/server/stats.json",
-    "serve": "cd dist/server && node index.js"
+    "bundle-analyzer:server": "webpack-bundle-analyzer ./dist/server/stats.json",
+    "serve": "cd dist/server && nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -34,7 +34,8 @@
     "antd-mobile": "^2.2.6",
     "express": "^4.16.4",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-router": "^4.3.1"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
@@ -48,6 +49,7 @@
     "ignore-loader": "^0.1.2",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
     "postcss": "^7.0.6",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
