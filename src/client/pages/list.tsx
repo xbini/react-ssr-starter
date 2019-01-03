@@ -30,9 +30,6 @@ export default class ListPage extends Component {
     }
 
     public handleClick(name?: string, e?: SyntheticEvent): void {
-        console.log(this)
-        console.log(name)
-        console.log(e)
     }
 
     public componentDidMount(): void {
